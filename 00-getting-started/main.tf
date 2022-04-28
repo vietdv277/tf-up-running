@@ -67,16 +67,8 @@ resource "aws_instance" "instance" {
   key_name = "vietdv-iMac-key"
   vpc_security_group_ids = [aws_security_group.sg-webserver.id]
 
-  user_data = <<-EOF
-  #!/bin/bash -xe
-  
-  sudo apt-get update
-  sudo apt-get install -y net-tools
-  sudo apt-get install -y apache2
-  sudo systemctl start apache2
-  sudo systemctl enable apache2
-  echo "The page was created by the user data" | sudo tee /var/www/html/index.html
-  EOF
+  user_data = "${file("templates/apache2_install.sh")}"
+
   tags = {
     Name = "00-getting-started"
   }
