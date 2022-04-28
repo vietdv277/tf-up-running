@@ -73,3 +73,13 @@ resource "aws_instance" "instance" {
     Name = "00-getting-started"
   }
 }
+
+output "server-private-ip" {
+  value = aws_instance.instance.private_ip
+  description = "Instance Private IP"
+}
+
+output "server-public-ip" {
+  value = aws_instance.instance.public_ip
+  description = "Instance Public IP"
+}
