@@ -2,6 +2,17 @@ provider "aws" {
   region = "ap-southeast-1"
 }
 
+terraform {
+  backend "s3" {
+    bucket = "terraform-up-and-running-state-vietdv"
+    key = "workspaces-example/terraform.tfstate"
+    region = "ap-southeast-1"
+
+    dynamodb_table = "terraform-up-and-running-locks"
+    encrypt = true
+  }
+}
+
 data "aws_ami" "ubuntu" {
   most_recent = true
 
