@@ -11,14 +11,14 @@ terraform {
     }
   }
 
-  backend "s3" {
-    bucket = "terraform-up-and-running-state-vietdv"
-    key = "global/s3/terraform.tfstate"
-    region = "ap-southeast-1"
+  #backend "s3" {
+  #  bucket = "terraform-up-and-running-state-vietdv"
+  #  key = "global/s3/terraform.tfstate"
+  #  region = "ap-southeast-1"
 
-    dynamodb_table = "terraform-up-and-running-locks"
-    encrypt = true
-  }
+  #  dynamodb_table = "terraform-up-and-running-locks"
+  #  encrypt = true
+  #}
 }
 
 resource "aws_s3_bucket" "terraform_state" {
