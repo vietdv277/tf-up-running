@@ -12,7 +12,7 @@ sudo yum -y install epel-release
 sudo yum -y update
 
 # Install support tools
-sudo yum install -y nano vim htop yum-utils 
+sudo yum install -y nano vim htop byobu yum-utils 
 
 # Install and configure git
 sudo yum install -y git
