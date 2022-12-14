@@ -41,5 +41,8 @@ sudo yum install -y nginx
 sudo systemctl enable nginx
 sudo systemctl start nginx
 
-# Config SElinux allow nginx proxy
-setsebool -P httpd_can_network_connect 1
+# Disable SElinux
+sudo sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
+
+# Reboot server
+sudo init 6
