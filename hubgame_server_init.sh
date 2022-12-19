@@ -47,7 +47,9 @@ sudo sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 # Add swap space
 sudo fallocate -l 8G /swapfile
 sudo chmod 600 /swapfile
-sudo echo "/swapfile swap swap defaults 0 0" >> /etc/fstab
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo su -c "echo '/swapfile swap swap defaults 0 0' >> /etc/fstab"
 sudo echo "vm.swappiness=10" >> /etc/sysctl.conf
 #
 
